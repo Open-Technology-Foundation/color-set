@@ -1,6 +1,11 @@
 # color-set
 
+[![License: GPL-3.0](https://img.shields.io/badge/License-GPL%203.0-blue.svg)](LICENSE)
+[![BCS Compliant](https://img.shields.io/badge/BCS-Compliant-green.svg)](https://github.com/Open-Technology-Foundation/bash-coding-standard)
+
 A lightweight bash library for terminal color management using ANSI escape codes.
+
+**Repository:** https://github.com/Open-Technology-Foundation/color-set
 
 ## Features
 
@@ -40,8 +45,15 @@ echo "${BOLD}${UNDERLINE}Important${NC}"
 ## Installation
 
 ```bash
-# Copy to a directory in your path or source directly
-cp color-set.sh /usr/local/lib/
+# Clone from repository
+git clone https://github.com/Open-Technology-Foundation/color-set
+cd color-set
+
+# Copy to a directory in your path
+sudo cp color-set.sh /usr/local/lib/
+
+# Or source directly from your scripts
+source /path/to/color-set.sh
 ```
 
 ## Usage
@@ -212,13 +224,24 @@ source color-set.sh
 - Bash 5.2+
 - Terminal with ANSI color support (most modern terminals)
 
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request or open an Issue at:
+https://github.com/Open-Technology-Foundation/color-set
+
 ## License
 
-Part of the Open Technology Foundation bash library collection.
+GPL-3.0 License - see [LICENSE](LICENSE) file for details.
+
+Part of the [Open Technology Foundation](https://github.com/Open-Technology-Foundation) bash library collection.
 
 ## Related
 
+- [Repository](https://github.com/Open-Technology-Foundation/color-set)
 - [Bash Coding Standard](https://github.com/Open-Technology-Foundation/bash-coding-standard)
-- BCS Rule 010201: Dual-Purpose Scripts
+- BCS Rule BCS0906: Color Management Library
+- BCS Rule BCS010201: Dual-Purpose Scripts
+- BCS Rule BCS0901: Standardized Messaging and Color Support
+- BCS Rule BCS0903: Core Message Functions
 
 #fin
