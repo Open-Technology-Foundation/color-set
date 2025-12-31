@@ -88,7 +88,7 @@ color_set [MODE] [TIER] [OPTIONS]
 | Option | Description |
 |--------|-------------|
 | `verbose`, `-v`, `--verbose` | Print variable declarations |
-| `flags` | Set standard BCS globals for _msg system:<br>- With `basic`: Sets VERBOSE only<br>- With `complete`: Sets VERBOSE, DEBUG, DRY_RUN, PROMPT |
+| `flags` | Set standard BCS globals for \_msg system:<br>- With `basic`: Sets VERBOSE only<br>- With `complete`: Sets VERBOSE, DEBUG, DRY_RUN, PROMPT |
 | `--help`, `-h`, `help` | Display usage information (executable mode only) |
 
 Flags can be combined in any order:
@@ -179,7 +179,7 @@ color_set never
 ./color-set auto | less
 ```
 
-### Using with BCS _msg System
+### Using with BCS \_msg System
 
 ```bash
 #!/bin/bash
@@ -239,8 +239,6 @@ https://github.com/Open-Technology-Foundation/color-set
 ## License
 
 GPL-3.0 License - see [LICENSE](LICENSE) file for details.
-
-Part of the [Open Technology Foundation](https://github.com/Open-Technology-Foundation) bash library collection.
 
 ## Related
 
