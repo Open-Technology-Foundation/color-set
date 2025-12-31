@@ -60,7 +60,7 @@ declare -fx color_set
 #!/bin/bash #semantic ---------------------------------------------------------
 set -euo pipefail
 
-declare -r VERSION=1.0.0
+declare -r VERSION=1.0.1
 
 # Handle help requests
 if [[ ${1:-} =~ ^(-h|--help|help)$ ]]; then
