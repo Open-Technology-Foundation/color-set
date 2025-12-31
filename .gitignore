@@ -1,0 +1,21 @@
+# Local configuration
+.symlink
+
+# Audit reports (generated per-session)
+AUDIT-*.md
+
+# External symlinks (point to system BCS)
+BASH-CODING-STANDARD.md
+
+# Editor backup/swap files
+*~
+~*
+.~*
+.*~
+*.swp
+*.swo
+.*.swp
+
+# OS artifacts
+.DS_Store
+Thumbs.db
