@@ -1,5 +1,7 @@
 # Local configuration
 .symlink
+.claude/
+CLAUDE.md
 
 # Audit reports (generated per-session)
 AUDIT-*.md
