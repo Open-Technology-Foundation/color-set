@@ -2,6 +2,9 @@
 .symlink
 .claude/
 CLAUDE.md
+.gitignore
+.gitpushcommit
+.gitcommit
 
 # Audit reports (generated per-session)
 AUDIT-*.md
