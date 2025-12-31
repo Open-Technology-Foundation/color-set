@@ -21,9 +21,13 @@ A lightweight bash library for terminal color management using ANSI escape codes
 
 ```bash
 #!/bin/bash
-source color-set.sh
-
+# Traditional syntax
+source color-set
 color_set complete
+
+# Or use enhanced syntax (auto-calls color_set)
+source color-set complete
+
 echo "${RED}Error:${NC} Something went wrong"
 echo "${GREEN}Success:${NC} Operation completed"
 echo "${BOLD}${UNDERLINE}Important${NC}"
@@ -33,13 +37,13 @@ echo "${BOLD}${UNDERLINE}Important${NC}"
 
 ```bash
 # Show help
-./color-set.sh --help
+./color-set --help
 
 # Show all color variables
-./color-set.sh complete verbose
+./color-set complete verbose
 
 # Test color output
-./color-set.sh complete
+./color-set complete
 ```
 
 ## Installation
@@ -50,10 +54,10 @@ git clone https://github.com/Open-Technology-Foundation/color-set
 cd color-set
 
 # Copy to a directory in your path
-sudo cp color-set.sh /usr/local/lib/
+sudo cp color-set /usr/local/lib/
 
 # Or source directly from your scripts
-source /path/to/color-set.sh
+source /path/to/color-set
 ```
 
 ## Usage
@@ -84,7 +88,7 @@ color_set [MODE] [TIER] [OPTIONS]
 | Option | Description |
 |--------|-------------|
 | `verbose`, `-v`, `--verbose` | Print variable declarations |
-| `flags` | Set standard BCS globals (VERBOSE, DEBUG, DRY_RUN, PROMPT) for use with _msg system |
+| `flags` | Set standard BCS globals for _msg system:<br>- With `basic`: Sets VERBOSE only<br>- With `complete`: Sets VERBOSE, DEBUG, DRY_RUN, PROMPT |
 | `--help`, `-h`, `help` | Display usage information (executable mode only) |
 
 Flags can be combined in any order:
@@ -123,7 +127,7 @@ REVERSE     # \033[7m
 ### Basic Usage
 
 ```bash
-source color-set.sh
+source color-set
 color_set basic
 
 echo "${RED}Error${NC}"
@@ -134,7 +138,7 @@ echo "${YELLOW}Warning${NC}"
 ### Complete Usage with Attributes
 
 ```bash
-source color-set.sh
+source color-set
 color_set complete
 
 echo "${BOLD}${RED}Critical Error${NC}"
@@ -147,8 +151,7 @@ echo "${REVERSE}Highlighted${NC}"
 ### Combining Colors and Attributes
 
 ```bash
-source color-set.sh
-color_set complete
+source color-set complete  # Enhanced syntax
 
 echo "${BOLD}${UNDERLINE}${RED}CRITICAL${NC}"
 echo "${ITALIC}${CYAN}Note: ${NC}${DIM}details...${NC}"
@@ -169,24 +172,22 @@ color_set never
 
 ```bash
 # Colors when interactive
-./color-set.sh auto
+./color-set auto
 
 # No colors when piped
-./color-set.sh auto > output.txt
-./color-set.sh auto | less
+./color-set auto > output.txt
+./color-set auto | less
 ```
 
 ### Using with BCS _msg System
 
 ```bash
 #!/bin/bash
-source color-set.sh
+# Enhanced syntax with flags
+source color-set complete flags
 
-# Initialize colors and standard BCS control variables
-color_set complete flags
-
-# Now VERBOSE, DEBUG, DRY_RUN, PROMPT are set
-# Use with BCS _msg system messaging constructs
+# With complete: VERBOSE, DEBUG, DRY_RUN, PROMPT are all set
+# With basic: Only VERBOSE is set
 echo "${GREEN}[INFO]${NC} Verbose level: $VERBOSE"
 echo "${YELLOW}[DEBUG]${NC} Debug mode: $DEBUG"
 echo "${CYAN}[DRY_RUN]${NC} Dry run: $DRY_RUN"
@@ -207,11 +208,17 @@ The script implements BCS010201 dual-purpose pattern:
 
 ```bash
 # When sourced: provides color_set() function
-source color-set.sh
+source color-set
+color_set complete
+
+# Enhanced: Pass options directly when sourcing
+source color-set complete flags
 
 # When executed: demonstrates colors
-./color-set.sh complete verbose
+./color-set complete verbose
 ```
+
+The enhanced sourcing syntax automatically calls `color_set` with the provided arguments, eliminating the need for a separate function call.
 
 ### Why Two Tiers?
 
@@ -239,9 +246,9 @@ Part of the [Open Technology Foundation](https://github.com/Open-Technology-Foun
 
 - [Repository](https://github.com/Open-Technology-Foundation/color-set)
 - [Bash Coding Standard](https://github.com/Open-Technology-Foundation/bash-coding-standard)
-- BCS Rule BCS0906: Color Management Library
+- BCS Rule BCS0706: Color Management Library
 - BCS Rule BCS010201: Dual-Purpose Scripts
-- BCS Rule BCS0901: Standardized Messaging and Color Support
-- BCS Rule BCS0903: Core Message Functions
+- BCS Rule BCS0701: Standardized Messaging and Color Support
+- BCS Rule BCS0703: Core Message Functions
 
 #fin
